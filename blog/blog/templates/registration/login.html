@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Login
+{% endblock title %}
+  
+
+{% block content %}
+
+  {% if error %}
+
+    {{ error }}
+    <br/>
+    <br/>
+    
+  {% endif %}
+  
+  <div class="container mx-auto my-4 w-50 p-3">
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login'  %}">
+      {% csrf_token %}
+      <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" name='username'>
+      </div>
+      
+      <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password">
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <input class ="btn btn-primary mb-4" type="submit" value= "Login" />
+      </div>
+      <br/>
+    </form>
+    <div class="d-flex mt-2">
+      <p class="">Don't have an account?</p>
+      <a class="ml-1" href="{% url 'signup'  %}">Signup</a>
+  </div>
+  </div>
+{% endblock content %}
+  
