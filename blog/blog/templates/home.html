@@ -12,6 +12,7 @@
                 <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
                 <p>author: {{post.author}}</p>
                 <p>{{post.body}}</p>
+                <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
             </div>
             {% endfor %}
         {% else %}
